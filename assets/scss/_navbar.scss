@@ -1,0 +1,131 @@
+body{
+    padding: 60px 0px;
+}
+.navegacion {
+    height: 60px;
+    margin: auto;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $colorC;
+    .nav-logo {
+        margin: auto;
+        a{
+            text-decoration: none;
+            img {
+                height: 60px;
+                width: 150px;
+            }
+        }
+        
+    }
+    .enlaces {
+        list-style: none;
+        margin: auto;
+        text-align: center;
+        li{
+            display: inline-block;
+            margin: 0 15px;
+            padding:  5px 10px; 
+            a{
+                text-decoration: none;
+                padding: 5px 10px;
+                font-size: 16px;
+                font-weight: 500;
+                text-transform: uppercase;
+                color: $colorB;
+                border-bottom: 2px solid $colorB;
+                border-radius: 3px;
+                transition-duration: 0.3s;
+                &:hover {
+                    color: $colorD;
+                    border-bottom: 2px solid $colorD;
+                }
+            }
+        }
+    }
+    .nav-toggle {
+        color: $colorB;
+        background-color: transparent;
+        border: none;
+        font-size: 30px;
+        padding: 0 20px;
+        line-height: 60px;
+        display: none;
+    }
+}
+
+
+.encabezado {
+    width: 100%;
+    background-color: $colorC;
+    img {
+        width: 100%;
+        height: 100%;
+        
+    }
+}
+
+@media (max-width:992px) {
+    .navegacion {
+        height: 60px;
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+        .nav-logo {
+            margin: 0 15px;
+            a{
+                img {
+                    height: 50px;
+                    width: 100px;
+                }
+            }
+            
+        }
+        .enlaces {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            background-color: $colorC;
+            position: fixed;
+            left: 0;
+            top: 60px;
+            width: 100%;
+            padding: 20px 0;
+            height:calc(100% - 60px);
+            overflow-y: auto;
+            left: 100%;
+            transition-duration: left .3s;
+            li{
+                margin: 10px;
+               
+                a{  
+                    font-weight: 600;
+                    border: none;
+                    border-bottom: 2px solid $colorB;
+                    border-radius: 0px;
+                    transition-duration: 0.3s;
+                    &:hover {
+                        color: $colorD;
+                        background-color: none;
+                        border: none;
+                        border-bottom: 2px solid $colorD;
+                    }
+                }
+            }
+        }
+        .nav-toggle {
+            display: block;
+        }
+        .nav-menu_visible {
+            left: 0;
+            
+        }
+    }
+    
+}
+
