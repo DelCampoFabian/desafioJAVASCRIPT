@@ -29,6 +29,9 @@ class Carrito {
 }
 
 
+let carrito = new Carrito (1)
+
+
 let listaDeProductos = []
 
 let indumentaria1 = new Producto (1, "Short", "ropaMujer6.jpg", 1500 )
@@ -47,8 +50,6 @@ let accesorios6 = new Producto (12,"Mancuernas", "barras11.jpg", 3500)
 listaDeProductos.push (indumentaria1,indumentaria2,indumentaria3,indumentaria4,indumentaria5,indumentaria6,)
 listaDeProductos.push (accesorios1,accesorios2,accesorios3,accesorios4,accesorios5,accesorios6,)
 
-
-
 //REGISTRAR VARIABLES
 let registroNombre
 let registroId
@@ -58,45 +59,45 @@ let contenedorNombre
 let contenedorId
 let contenedorPrecio
 let textoTotal
-
+let object
+let contenedorStorageNombre
+let contenedorStorageId
+let contenedorStoragePrecio
 
 //FUNCIONES
-function registrarHtml (){
+function registrarHtml(){
     registroNombre = document.querySelector("#registro-nombre");
     registroId = document.querySelector("#registro-id");
     registroPrecio = document.querySelector("#registro-precio");
     registrarTotal = document.querySelector("#registro-total");
 }
 
-
-function recorridoArray () {
-    for (const producto of carrito.productos){
-        contenedorNombre = producto.nombre 
-        contenedorId = producto.id
+function recorridoArray(){
+    carrito.productos.forEach((producto) =>{
+        contenedorNombre = producto.nombre; 
+        contenedorId = producto.id;
         contenedorPrecio = producto.precio;
-    }   
+    })
 }
 
-
-function registrarProductos (){  
+function registrarProductos(){  
     registroNombre.innerHTML += `<li>${contenedorNombre}</li>`;
     registroId.innerHTML += `<li>${contenedorId}</li>`
     registroPrecio.innerHTML += `<li>$ ${contenedorPrecio}</li>`
     registrarTotal.innerHTML = `<li>$ ${carrito.calcularTotal()}</li>`
-    
 }
-function tarjetaDom (producto){
+function tarjetaDom(producto){
     let tarjetaDom =
-`<div class="productos p-0">
-    <div class="productos__img">
-    <img src="./assets/img/${producto.imagen}">
-    </div>
-    <div class="productos__text">
-        <h4>${producto.nombre}</h4>
-        <p>$ ${producto.precio}</p>
-        <button id="${producto.id}" class="boton">Agregar al carrito</button>        
-    </div>
-</div>`;
+        `<div class="productos p-0">
+            <div class="productos__img">
+            <img src="./assets/img/${producto.imagen}">
+            </div>
+            <div class="productos__text">
+                <h4>${producto.nombre}</h4>
+                <p>$ ${producto.precio}</p>
+                <button id="${producto.id}" class="boton">Agregar al carrito</button>        
+            </div>
+        </div>`;
     return tarjetaDom
 }
 
@@ -107,13 +108,35 @@ function limpiarCarrito() {
     registrarTotal.innerHTML= "";    
 }
 
-function almacenarStorage (){
-    localStorage.removeItem("carrito")
-    localStorage.setItem("carrito", JSON.stringify (carrito) )
+function almacenarStorage(){
+    localStorage.setItem("carrito", JSON.stringify (carrito.productos))
 }
+
 function obtenerStorage (){
-    let storage = localStorage.getItem("carrito")
-    carrito.productos = JSON.parse(storage)
+    let storage = localStorage.getItem("carrito");
+        object = JSON.parse(storage);
+        carrito.productos = object
+            carrito.productos.forEach ((producto) => {
+            contenedorStorageNombre = producto.nombre;
+            contenedorStorageId = producto.id;
+            contenedorStoragePrecio= producto.precio;
+            mantenerLista()
+            }) 
+}
+
+function mantenerLista(){  
+    registroNombre.innerHTML += `<li>${contenedorStorageNombre}</li>`;
+    registroId.innerHTML += `<li>${contenedorStorageId}</li>`
+    registroPrecio.innerHTML += `<li>$ ${contenedorStoragePrecio}</li>`
+    registrarTotal.innerHTML = `<li>$ ${totalStorage()}</li>`
+}
+
+function totalStorage(){
+    let total = 0
+    for (let i = 0; i < object.length; i++){
+        total += object[i].precio;
+    }
+    return total
 }
 
 //tarjeta contenedora
@@ -122,12 +145,7 @@ let tarjetaContenedora = document.querySelector ("#productos");
 listaDeProductos.forEach (producto => {
     tarjetaContenedora.innerHTML += tarjetaDom(producto)
 } )
-
-
-
 // Generacion de carrito
-
-let carrito = new Carrito (1)
 
 let botones = document.querySelectorAll(".boton");
 let arrayBotones = Array.from (botones)
@@ -135,31 +153,26 @@ arrayBotones.forEach (boton => {
     boton.addEventListener("click", (e) => {
         let productoSeleccionado = listaDeProductos.find (producto => producto.id == e.target.id);
         carrito.productos.push(productoSeleccionado);
+        almacenarStorage()
         recorridoArray()
         registrarProductos()
     })
 })
 
-function main (){
-    registrarHtml()
-    almacenarStorage ()
-}
-
-main()
-
-
-
-
-
-
-
-
-
 let refrescar = document.querySelector(".boton-cancelar")
 refrescar.addEventListener("click", (e) =>{
     limpiarCarrito()
     carrito.productos = []
+    almacenarStorage()
 })
+
+function main (){
+    registrarHtml()
+    obtenerStorage()
+
+}
+main()
+
 
 
 

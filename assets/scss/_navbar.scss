@@ -38,12 +38,9 @@ body{
                 font-weight: 500;
                 text-transform: uppercase;
                 color: $colorB;
-                border-bottom: 2px solid $colorB;
-                border-radius: 3px;
                 transition-duration: 0.3s;
                 &:hover {
                     color: $colorD;
-                    border-bottom: 2px solid $colorD;
                 }
             }
         }

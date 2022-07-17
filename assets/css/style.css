@@ -62,15 +62,12 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   color: #ffffff;
-  border-bottom: 2px solid #ffffff;
-  border-radius: 3px;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
 
 .navegacion .enlaces li a:hover {
   color: #00e0c6;
-  border-bottom: 2px solid #00e0c6;
 }
 
 .navegacion .nav-toggle {
@@ -318,12 +315,17 @@ body {
   border: none;
   background-color: transparent;
   position: absolute;
-  right: 20px;
-  top: 10px;
+  right: 0px;
+  top: 0px;
 }
 
 .container .boton-cancelar i {
   color: #ffffff;
+  padding: 10px 20px;
   font-size: 24px;
+}
+
+.container .boton-cancelar i:hover {
+  color: #00e0c6;
 }
 /*# sourceMappingURL=style.css.map */
