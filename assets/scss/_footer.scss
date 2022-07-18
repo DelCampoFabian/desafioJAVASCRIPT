@@ -1,0 +1,36 @@
+.pie__container {
+    background-color: $colorA;
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 100px 20px 20px;
+    .pie__ubicacion, .pie__contacto, .pie__redes {
+    
+        h6 {
+            font-size: 24px;
+            color: $colorD;
+            font-weight: 600;
+            text-align: center;
+        }
+        ul{
+            list-style: none;
+            font-size: 14px;
+            color: $colorB;
+            li {
+                line-height: 24px;
+               
+            }
+            
+        }
+    }
+    .pie__redes {
+        li{
+            display: inline-block;
+            margin: 5px 15px;
+            i{
+                font-size: 28px;
+            }
+        }
+        
+    }
+}

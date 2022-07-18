@@ -1,13 +1,14 @@
 body{
-    padding: 60px 0px;
+    padding: 60px 0px 0px 0px;
 }
 .navegacion {
     height: 60px;
+    width: 100%;
     margin: auto;
     position: fixed;
-    width: 100%;
     left: 0;
     top: 0;
+    z-index: 15;
     display: flex;
     justify-content: space-between;
     align-items: center;

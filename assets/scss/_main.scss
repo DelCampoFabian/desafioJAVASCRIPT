@@ -1,11 +1,10 @@
-.nosotros-titulo,.productos-tituto, .registro-titulo {
+.nosotros-titulo,.productos-tituto, .registro-titulo, .contacto-titulo {
     width: 100%;
     text-align: center;
-    font-size: 48px;
+    font-size: 38px;
     font-weight: 600;
     margin: 50px auto;
     color: $colorA;
-    letter-spacing: 2px;
     span {
         color: $colorD;
     }
@@ -34,12 +33,11 @@
         border-radius: 0 5px 5px 0;
         overflow: hidden;
         h5 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
         }
         p{
-            font-size: 18px;
-            line-height: 24px;
+            font-size: 16px;
             color: $colorB;
             text-align: justify;
         }
@@ -70,13 +68,13 @@
         padding: 5px;
         height: 50%;
         h4 {
-            font-size: 18px;
+            font-size: 21px;
             padding: 5px;
             font-weight: 600;
             text-align: center;
         }
         p{ 
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 600;
             span {
                 color: $colorA;
@@ -123,14 +121,14 @@
                 color: #000;
                 padding: 8px 0;
                 border-bottom: 4px solid $colorB;
-                font-size: 18px;
+                font-size: 17px;
             }
         }
       
         h4 {
             margin: 10px;
             border-bottom: 4px solid $colorB;
-            font-size: 20px;
+            font-size: 21px;
             color: $colorB; 
         }
     }
@@ -153,10 +151,115 @@
 }
 
 
-
-
-
-
+/* Formulario de contacto */
+.contacto {
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $colorA;
+    .contact-redes{
+        padding: 15px;
+        text-align: center;
+        .contact-redes-img {
+            width: 100%;
+            height: 150px;
+            margin: 50px auto;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        .contact-redes-icons {
+            margin: 25px auto;
+            color: $colorB;
+            h4 {
+                font-size: 24px;
+            }
+            span {
+                font-size: 28px;
+                padding: 5px 15px;
+            }
+        }
+    }
+    .contact-form {
+        width: 500px;
+        padding: 50px;
+        text-align: center;
+        h4 {
+            text-align: center;
+            font-size: 34px;
+            color: $colorB;
+            font-weight: 600;
+        }
+        .contact-container {
+            position: relative;
+            width: 400px;
+            margin: 25px auto;
+            input {
+                width: 100%;
+                padding: 10px;
+                border: 2px solid $colorC;
+                background-color: $colorA;
+                outline: none;
+                border-radius: 4px;
+                color: $colorB;
+                font-size: 16px;
+                &:valid ~ label, &:focus ~ label {
+                    color: $colorD;
+                    transform: translateX(10px) translateY(-7px);
+                    padding: 0 10px;
+                    font-size: 12px;
+                    background-color: $colorA;
+                    border-right: 2px solid $colorD;
+                    border-left: 2px solid $colorD;
+                    letter-spacing: 2px;
+                }
+            }
+            label {
+                position: absolute;
+                left: 0;
+                padding: 10px;
+                pointer-events: none;
+                font-size: 16px;
+                color: $colorC;
+                transition-duration: .5s;
+            }
+            textarea {
+                width: 100%;
+                height: 100px;
+                padding: 10px;
+                border: 2px solid $colorC;
+                background-color: $colorA;
+                outline: none;
+                border-radius: 4px;
+                color: $colorB;
+                font-size: 16px;
+                resize: none;
+                &::placeholder {
+                    color: $colorC;
+                }
+            }
+        }
+        .form-boton {
+            border: none;
+            padding: 5px 15px;
+            background-color: $colorA;
+            border: 1px solid $colorD;
+            color: $colorD;
+            font-size: 18px;
+            font-weight: 600;
+            width: 50%;
+            border-radius: 4px;
+            transition-duration: .3s;
+            &:hover {
+                background-color: $colorD;
+                color: $colorA;
+            }
+        }
+    }
+}
 
 
 
