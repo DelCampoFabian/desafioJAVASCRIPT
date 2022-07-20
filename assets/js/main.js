@@ -14,22 +14,9 @@ class Producto {
         this.precio = precio;
     }
 }
-class Carrito {
-    constructor (id){
-        this.id = id;
-        this.productos = []
-    }
-    calcularTotal (){
-        let total = 0
-        for (let i = 0; i < this.productos.length; i++){
-            total = total + this.productos[i].precio;
-        }
-        return total  
-    }
-}
 
-
-let carrito = new Carrito (1)
+let carrito = []
+let total = 0
 
 
 let listaDeProductos = []
@@ -73,7 +60,7 @@ function registrarHtml(){
 }
 
 function recorridoArray(){
-    carrito.productos.forEach((producto) =>{
+    carrito.forEach((producto) =>{
         contenedorNombre = producto.nombre; 
         contenedorId = producto.id;
         contenedorPrecio = producto.precio;
@@ -84,8 +71,9 @@ function registrarProductos(){
     registroNombre.innerHTML += `<li>${contenedorNombre}</li>`;
     registroId.innerHTML += `<li>${contenedorId}</li>`
     registroPrecio.innerHTML += `<li>$ ${contenedorPrecio}</li>`
-    registrarTotal.innerHTML = `<li>$ ${carrito.calcularTotal()}</li>`
+    registrarTotal.innerHTML = `<li>$ ${total}</li>`
 }
+
 function tarjetaDom(producto){
     let tarjetaDom =
         `<div class="productos p-0">
@@ -101,6 +89,8 @@ function tarjetaDom(producto){
     return tarjetaDom
 }
 
+
+
 function limpiarCarrito() {
     registroNombre.innerHTML = "";
     registroPrecio.innerHTML = "";
@@ -109,19 +99,19 @@ function limpiarCarrito() {
 }
 
 function almacenarStorage(){
-    localStorage.setItem("carrito", JSON.stringify (carrito.productos))
+    localStorage.setItem("carrito", JSON.stringify (carrito))
 }
 
 function obtenerStorage (){
     let storage = localStorage.getItem("carrito");
-        object = JSON.parse(storage);
-        carrito.productos = object
-            carrito.productos.forEach ((producto) => {
-            contenedorStorageNombre = producto.nombre;
-            contenedorStorageId = producto.id;
-            contenedorStoragePrecio= producto.precio;
-            mantenerLista()
-            }) 
+    object = JSON.parse(storage);
+    carrito = object
+    carrito.forEach ((producto) => {
+        contenedorStorageNombre = producto.nombre;
+        contenedorStorageId = producto.id;
+        contenedorStoragePrecio= producto.precio;
+        mantenerLista()
+    }) 
 }
 
 function mantenerLista(){  
@@ -152,17 +142,30 @@ let arrayBotones = Array.from (botones)
 arrayBotones.forEach (boton => {
     boton.addEventListener("click", (e) => {
         let productoSeleccionado = listaDeProductos.find (producto => producto.id == e.target.id);
-        carrito.productos.push(productoSeleccionado);
+        carrito.push(productoSeleccionado);
+        total = carrito.reduce((acumulador, elemento) => acumulador + elemento.precio, 0 )
         almacenarStorage()
         recorridoArray()
         registrarProductos()
+        Toastify({
+            text: "Producto agregado",
+            duration: 3000,
+            close: true,
+            style: {
+                background:"linear-gradient(90deg, rgba(0,147,147,1) 0%, rgba(0,224,198,1) 100%)",
+                color: "#000",
+                padding : "15px",
+                margin: "50px 0 0 0"
+            },
+            gravity: "top",
+        }).showToast();
     })
 })
 
 let refrescar = document.querySelector(".boton-cancelar")
 refrescar.addEventListener("click", (e) =>{
     limpiarCarrito()
-    carrito.productos = []
+    carrito = []
     almacenarStorage()
 })
 
