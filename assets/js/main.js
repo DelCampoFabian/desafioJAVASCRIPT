@@ -89,6 +89,35 @@ function tarjetaDom(producto){
     return tarjetaDom
 }
 
+/* Funciones cartel de compra */
+function cartelProductoAgregado(){
+    Toastify({
+        text: "Producto agregado",
+        duration: 3000,
+        close: true,
+        style: {
+            background:"linear-gradient(90deg, rgba(0,147,147,1) 0%, rgba(0,224,198,1) 100%)",
+            color: "#000",
+            padding : "15px",
+            margin: "50px 0 0 0"
+        },
+        gravity: "top",
+    }).showToast();
+}
+function cartelCompraCancelada(){
+    Toastify({
+        text: "Compra cancelada",
+        duration: 3000,
+        close: true,
+        style: {
+            background:"linear-gradient(90deg, rgba(0,180,219,1) 0%, rgba(0,131,219,1) 100%)",
+            color: "#000",
+            padding : "15px",
+        },
+        gravity: "bottom",
+    }).showToast();
+}
+
 
 
 function limpiarCarrito() {
@@ -147,18 +176,7 @@ arrayBotones.forEach (boton => {
         almacenarStorage()
         recorridoArray()
         registrarProductos()
-        Toastify({
-            text: "Producto agregado",
-            duration: 3000,
-            close: true,
-            style: {
-                background:"linear-gradient(90deg, rgba(0,147,147,1) 0%, rgba(0,224,198,1) 100%)",
-                color: "#000",
-                padding : "15px",
-                margin: "50px 0 0 0"
-            },
-            gravity: "top",
-        }).showToast();
+        cartelProductoAgregado()
     })
 })
 
@@ -167,6 +185,7 @@ refrescar.addEventListener("click", (e) =>{
     limpiarCarrito()
     carrito = []
     almacenarStorage()
+    cartelCompraCancelada()
 })
 
 function main (){
