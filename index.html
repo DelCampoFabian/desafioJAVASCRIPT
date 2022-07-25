@@ -23,9 +23,9 @@
         <nav class="navegacion">
             <h1 class="nav-logo"><a href=""><img  src="./assets/img/titulopreentrega.png" alt=""></a></h1>
             <button class="nav-toggle"><i class="fa-solid fa-bars"></i></button>
-            <ul class="enlaces nav-menu_visible">
+            <ul class="enlaces">
                 <li><a href="#Productos">Productos</a></li>
-                <li><a href="#Registro"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="./pages/carrito.html"><i class="fa-solid fa-cart-shopping"></i></a><span class="contador-productos"></span></li>
                 <li><a href="#Nosotros">Nosotros</a></li>
                 <li><a href="#Contacto">Contacto</a></li>
                 <li><a href="#Footer">Footer</a></li>
@@ -39,34 +39,10 @@
 <!-- Seccion principal -->
 
     <main>
-        
         <!-- TARJETAS DE PRODUCTOS -->
         <section  class="Productos">
-            <h3 class="productos-tituto" id="Productos" >Productos</h3>
+            <h3 class="productos-tituto" id="Productos">Productos</h3>
             <div class="text-center" id="productos"></div>
-        </section>
-        <!-- REGISTRO DE COMPRAS -->
-        <section id="Registro">
-            <h3 class= "registro-titulo">Registro de <span>compras</span></h3>
-            <div class="container" id="registro">
-                <div class="container__producto registro">
-                    <h4>Producto</h4>
-                    <ul class="producto-lista p-0" id="registro-nombre"></ul>
-                </div>
-                <div class="container__id">
-                    <h4>ID</h4>
-                    <ul class="id-lista p-0" id="registro-id"></ul>
-                </div>
-                <div class="container__precio">
-                    <h4>Precio</h4>
-                    <ul class="precio-lista p-0" id="registro-precio"></ul>
-                </div>
-                <div class="container__total">
-                    <h4>Total</h4>
-                    <ul class="total-lista p-0" id="registro-total"></ul>
-                </div>
-                <button class="boton-cancelar"><i class="fa-solid fa-xmark"></i></button>
-            </div>
         </section>
         <!-- SOBRE NOSOTROS -->
         <section class="nosotros" id="Nosotros">
@@ -147,7 +123,7 @@
 
 <!-- Pie de pagina  -->
 
-<footer>
+<footer id="Footer">
     <div class="pie__container">
         <div class="pie__ubicacion">
             <h6>Ubicacion y horarios</h6>

@@ -5,7 +5,7 @@ NAVTOGGLE.addEventListener("click", () => {
     NAVMENU.classList.toggle("nav-menu_visible")
 })
 
-//CLASES 
+//Clase para crear los productos 
 class Producto {
     constructor (id, nombre,imagen, precio){
         this.id = id;
@@ -15,6 +15,8 @@ class Producto {
     }
 }
 
+
+let cantidadProductos= []
 let carrito = []
 let total = 0
 
@@ -38,14 +40,14 @@ listaDeProductos.push (indumentaria1,indumentaria2,indumentaria3,indumentaria4,i
 listaDeProductos.push (accesorios1,accesorios2,accesorios3,accesorios4,accesorios5,accesorios6,)
 
 //REGISTRAR VARIABLES
-let registroNombre
-let registroId
-let registroPrecio
-let registrarTotal
-let contenedorNombre
-let contenedorId
-let contenedorPrecio
-let textoTotal
+
+//LLAMAR AL DOM
+let sumarCarrito 
+
+//Llenar icono del carrito
+let contador = 0
+let contenedorContador
+
 let object
 let contenedorStorageNombre
 let contenedorStorageId
@@ -53,27 +55,14 @@ let contenedorStoragePrecio
 
 //FUNCIONES
 function registrarHtml(){
-    registroNombre = document.querySelector("#registro-nombre");
-    registroId = document.querySelector("#registro-id");
-    registroPrecio = document.querySelector("#registro-precio");
-    registrarTotal = document.querySelector("#registro-total");
-}
-
-function recorridoArray(){
-    carrito.forEach((producto) =>{
-        contenedorNombre = producto.nombre; 
-        contenedorId = producto.id;
-        contenedorPrecio = producto.precio;
-    })
+    sumarCarrito = document.querySelector(".contador-productos")
 }
 
 function registrarProductos(){  
-    registroNombre.innerHTML += `<li>${contenedorNombre}</li>`;
-    registroId.innerHTML += `<li>${contenedorId}</li>`
-    registroPrecio.innerHTML += `<li>$ ${contenedorPrecio}</li>`
-    registrarTotal.innerHTML = `<li>$ ${total}</li>`
+    sumarCarrito.innerText = `${cantidadProductos.length}`
 }
 
+// Funcion para crear las cards de prodtos
 function tarjetaDom(producto){
     let tarjetaDom =
         `<div class="productos p-0">
@@ -104,34 +93,21 @@ function cartelProductoAgregado(){
         gravity: "top",
     }).showToast();
 }
-function cartelCompraCancelada(){
-    Toastify({
-        text: "Compra cancelada",
-        duration: 3000,
-        close: true,
-        style: {
-            background:"linear-gradient(90deg, rgba(0,180,219,1) 0%, rgba(0,131,219,1) 100%)",
-            color: "#000",
-            padding : "15px",
-        },
-        gravity: "bottom",
-    }).showToast();
-}
-
-
-
-function limpiarCarrito() {
-    registroNombre.innerHTML = "";
-    registroPrecio.innerHTML = "";
-    registroId.innerHTML = "";
-    registrarTotal.innerHTML= "";    
-}
 
 function almacenarStorage(){
     localStorage.setItem("carrito", JSON.stringify (carrito))
+    localStorage.setItem("contador", JSON.stringify(cantidadProductos))
 }
 
 function obtenerStorage (){
+    //Storage de cantidad de productos en el carrito
+    let storageCantProductos = localStorage.getItem("contador")
+    let numeroProductos = JSON.parse(storageCantProductos);
+    cantidadProductos= numeroProductos;
+    contenedorContador = cantidadProductos.length;
+    sumarCarrito.innerText = `${contenedorContador}`
+    
+    //Storage de la lista de productos
     let storage = localStorage.getItem("carrito");
     object = JSON.parse(storage);
     carrito = object
@@ -139,32 +115,16 @@ function obtenerStorage (){
         contenedorStorageNombre = producto.nombre;
         contenedorStorageId = producto.id;
         contenedorStoragePrecio= producto.precio;
-        mantenerLista()
     }) 
 }
 
-function mantenerLista(){  
-    registroNombre.innerHTML += `<li>${contenedorStorageNombre}</li>`;
-    registroId.innerHTML += `<li>${contenedorStorageId}</li>`
-    registroPrecio.innerHTML += `<li>$ ${contenedorStoragePrecio}</li>`
-    registrarTotal.innerHTML = `<li>$ ${totalStorage()}</li>`
-}
-
-function totalStorage(){
-    let total = 0
-    for (let i = 0; i < object.length; i++){
-        total += object[i].precio;
-    }
-    return total
-}
-
-//tarjeta contenedora
-
+//TARJETA PARA CONTENER Y PINTAR LAS CARDS DE PRODUCTOS 
 let tarjetaContenedora = document.querySelector ("#productos");
 listaDeProductos.forEach (producto => {
     tarjetaContenedora.innerHTML += tarjetaDom(producto)
 } )
-// Generacion de carrito
+
+//GENERACION DE CARRITO
 
 let botones = document.querySelectorAll(".boton");
 let arrayBotones = Array.from (botones)
@@ -172,26 +132,18 @@ arrayBotones.forEach (boton => {
     boton.addEventListener("click", (e) => {
         let productoSeleccionado = listaDeProductos.find (producto => producto.id == e.target.id);
         carrito.push(productoSeleccionado);
+        ++contador
+        cantidadProductos.push(contador)
         total = carrito.reduce((acumulador, elemento) => acumulador + elemento.precio, 0 )
         almacenarStorage()
-        recorridoArray()
         registrarProductos()
         cartelProductoAgregado()
     })
 })
-
-let refrescar = document.querySelector(".boton-cancelar")
-refrescar.addEventListener("click", (e) =>{
-    limpiarCarrito()
-    carrito = []
-    almacenarStorage()
-    cartelCompraCancelada()
-})
-
+//CANCELAR COMPRA Y VACIAR REGISTRO
 function main (){
     registrarHtml()
     obtenerStorage()
-
 }
 main()
 

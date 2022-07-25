@@ -100,57 +100,6 @@
     }
 }
 
-/* Registro de productos */
-
-.container {
-    width: 80%;
-    margin: 50px auto;
-    padding: 25px;
-    background-color: $colorC;
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    .container__producto,.container__id, .container__precio, .container__cantidad, .container__total  {
-        text-align: center;
-        ul {
-            list-style: none;
-            li {
-                font-weight: 600;
-                border: none;
-                color: #000;
-                padding: 8px 0;
-                border-bottom: 4px solid $colorB;
-                font-size: 17px;
-            }
-        }
-      
-        h4 {
-            margin: 10px;
-            border-bottom: 4px solid $colorB;
-            font-size: 21px;
-            color: $colorB; 
-        }
-    }
-    .boton-cancelar {
-        border: none;
-        background-color: transparent;
-        position: absolute;
-        right: 0px;
-        top: 0px;
-        i{
-            color: $colorB;
-            padding: 10px 20px;
-            font-size: 24px;
-            &:hover {
-                color: $colorD;
-            }
-        }
-    }
-    
-}
-
-
 /* Formulario de contacto */
 .contacto {
     margin: 0px auto;
@@ -263,7 +212,157 @@
 
 
 
+/* Registro de productos */
+.registro__productos{
+    display: flex;
+    justify-content: space-between;
+    .container {
+        width: 70%;
+        margin: 30px 20px;
+        padding: 25px;
+        background-color: $colorC;
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        .container__producto,.container__id, .container__precio, .container__cantidad, .container__total  {
+            text-align: center;
+            ul {
+                list-style: none;
+                li {
+                    font-weight: 600;
+                    border: none;
+                    color: #000;
+                    padding: 8px 0;
+                    border-bottom: 4px solid $colorB;
+                    font-size: 17px;
+                }
+            }
+          
+            h4 {
+                margin: 10px;
+                border-bottom: 4px solid $colorB;
+                font-size: 21px;
+                color: $colorB; 
+            }
+        }
+        .boton-cancelar {
+            border: none;
+            background-color: transparent;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            i{
+                color: $colorB;
+                padding: 10px 20px;
+                font-size: 24px;
+                &:hover {
+                    color: $colorD;
+                }
+            }
+        }
+        
+    }
+    .inicio-compra {
+        width: 30%;
+        height: max-content;
+        margin: 30px 20px;
+        padding: 15px 0; 
+        background: linear-gradient(90deg, rgba(0,147,147,1) 0%, rgba(0,224,198,1) 100%);
+        color: $colorB;
+        text-align: center;
+        h3 {
+            width: 100%;
+            padding: 5px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        h5 {
+            width: 100%;
+            font-size: 22px;
+            padding: 10px 15px;
+            text-align: left;
+        }
+        .inicio-boton__comprar{
+            padding: 4px 14px;
+            margin: 15px auto; 
+            border: 2px solid $colorA;
+            background-color: $colorA;
+            border-radius: 4px;
+            font-size: 17px;
+            font-weight: 600;
+            color: $colorB;
+            transition-duration: .2s;
+            &:hover {
+                color: #000;
+                background-color: transparent;
+            }
+        }
+
+    }
+    
+}
 
 
 
+/* FORMULARIO DE COMPRA */
 
+.compra-registro {
+    width: 80%;
+    display: none;
+    margin: 50px auto;
+    padding: 30px 15px;
+    background-color: $colorC;
+    h3{
+        font-size: 28px;
+        font-weight: 600;
+        color: $colorB;
+        text-align: center;
+    }
+    .form-compra{
+        padding: 15px;
+        .form-compra__container{
+            margin: 10px auto;
+            display: flex;
+            
+            .input__container{
+                width: 50%;
+                text-align: center;
+                input{
+                    width: 90%;
+                    padding:8px;
+                    background-color: $colorC;
+                    border-radius: 4px;
+                    outline: none;
+                    border: 2px solid $colorA;
+                    color: $colorB;
+                    font-size: 17px;
+                    font-weight: 500;
+                    &::placeholder{
+                        color: #0008;
+                        font-size: 18px;
+                    }
+                }
+                .input-boton__compra {
+                    background-color: $colorC;
+                    width: 50%;
+                    border: 3px solid $colorD;
+                    border-radius: 0;
+                    color: #000;
+                    transition-duration: .2s;
+                    &:hover{
+                        background-color: $colorD;
+                    }
+                }
+            }
+        }
+           
+    }
+    
+}
+.registro__invisible{
+    display: none;
+}
+.registro__visible {
+    display: block;
+}

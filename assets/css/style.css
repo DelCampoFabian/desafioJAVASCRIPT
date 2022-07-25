@@ -54,6 +54,7 @@ body {
   display: inline-block;
   margin: 0 15px;
   padding: 5px 10px;
+  position: relative;
 }
 
 .navegacion .enlaces li a {
@@ -69,6 +70,19 @@ body {
 
 .navegacion .enlaces li a:hover {
   color: #00e0c6;
+}
+
+.navegacion .enlaces li .contador-productos {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  padding: 1.5px 6px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #016170;
 }
 
 .navegacion .nav-toggle {
@@ -271,63 +285,6 @@ body {
   border: 2px solid #016170;
 }
 
-/* Registro de productos */
-.container {
-  width: 80%;
-  margin: 50px auto;
-  padding: 25px;
-  background-color: #009393;
-  position: relative;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
-}
-
-.container .container__producto, .container .container__id, .container .container__precio, .container .container__cantidad, .container .container__total {
-  text-align: center;
-}
-
-.container .container__producto ul, .container .container__id ul, .container .container__precio ul, .container .container__cantidad ul, .container .container__total ul {
-  list-style: none;
-}
-
-.container .container__producto ul li, .container .container__id ul li, .container .container__precio ul li, .container .container__cantidad ul li, .container .container__total ul li {
-  font-weight: 600;
-  border: none;
-  color: #000;
-  padding: 8px 0;
-  border-bottom: 4px solid #ffffff;
-  font-size: 17px;
-}
-
-.container .container__producto h4, .container .container__id h4, .container .container__precio h4, .container .container__cantidad h4, .container .container__total h4 {
-  margin: 10px;
-  border-bottom: 4px solid #ffffff;
-  font-size: 21px;
-  color: #ffffff;
-}
-
-.container .boton-cancelar {
-  border: none;
-  background-color: transparent;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-}
-
-.container .boton-cancelar i {
-  color: #ffffff;
-  padding: 10px 20px;
-  font-size: 24px;
-}
-
-.container .boton-cancelar i:hover {
-  color: #00e0c6;
-}
-
 /* Formulario de contacto */
 .contacto {
   margin: 0px auto;
@@ -474,6 +431,203 @@ body {
 .contacto .contact-form .form-boton:hover {
   background-color: #00e0c6;
   color: #016170;
+}
+
+/* Registro de productos */
+.registro__productos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.registro__productos .container {
+  width: 70%;
+  margin: 30px 20px;
+  padding: 25px;
+  background-color: #009393;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+}
+
+.registro__productos .container .container__producto, .registro__productos .container .container__id, .registro__productos .container .container__precio, .registro__productos .container .container__cantidad, .registro__productos .container .container__total {
+  text-align: center;
+}
+
+.registro__productos .container .container__producto ul, .registro__productos .container .container__id ul, .registro__productos .container .container__precio ul, .registro__productos .container .container__cantidad ul, .registro__productos .container .container__total ul {
+  list-style: none;
+}
+
+.registro__productos .container .container__producto ul li, .registro__productos .container .container__id ul li, .registro__productos .container .container__precio ul li, .registro__productos .container .container__cantidad ul li, .registro__productos .container .container__total ul li {
+  font-weight: 600;
+  border: none;
+  color: #000;
+  padding: 8px 0;
+  border-bottom: 4px solid #ffffff;
+  font-size: 17px;
+}
+
+.registro__productos .container .container__producto h4, .registro__productos .container .container__id h4, .registro__productos .container .container__precio h4, .registro__productos .container .container__cantidad h4, .registro__productos .container .container__total h4 {
+  margin: 10px;
+  border-bottom: 4px solid #ffffff;
+  font-size: 21px;
+  color: #ffffff;
+}
+
+.registro__productos .container .boton-cancelar {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.registro__productos .container .boton-cancelar i {
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 24px;
+}
+
+.registro__productos .container .boton-cancelar i:hover {
+  color: #00e0c6;
+}
+
+.registro__productos .inicio-compra {
+  width: 30%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin: 30px 20px;
+  padding: 15px 0;
+  background: -webkit-gradient(linear, left top, right top, from(#009393), to(#00e0c6));
+  background: linear-gradient(90deg, #009393 0%, #00e0c6 100%);
+  color: #ffffff;
+  text-align: center;
+}
+
+.registro__productos .inicio-compra h3 {
+  width: 100%;
+  padding: 5px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.registro__productos .inicio-compra h5 {
+  width: 100%;
+  font-size: 22px;
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.registro__productos .inicio-compra .inicio-boton__comprar {
+  padding: 4px 14px;
+  margin: 15px auto;
+  border: 2px solid #016170;
+  background-color: #016170;
+  border-radius: 4px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #ffffff;
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+}
+
+.registro__productos .inicio-compra .inicio-boton__comprar:hover {
+  color: #000;
+  background-color: transparent;
+}
+
+/* FORMULARIO DE COMPRA */
+.compra-registro {
+  width: 80%;
+  display: none;
+  margin: 50px auto;
+  padding: 30px 15px;
+  background-color: #009393;
+}
+
+.compra-registro h3 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+}
+
+.compra-registro .form-compra {
+  padding: 15px;
+}
+
+.compra-registro .form-compra .form-compra__container {
+  margin: 10px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.compra-registro .form-compra .form-compra__container .input__container {
+  width: 50%;
+  text-align: center;
+}
+
+.compra-registro .form-compra .form-compra__container .input__container input {
+  width: 90%;
+  padding: 8px;
+  background-color: #009393;
+  border-radius: 4px;
+  outline: none;
+  border: 2px solid #016170;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.compra-registro .form-compra .form-compra__container .input__container input::-webkit-input-placeholder {
+  color: #0008;
+  font-size: 18px;
+}
+
+.compra-registro .form-compra .form-compra__container .input__container input:-ms-input-placeholder {
+  color: #0008;
+  font-size: 18px;
+}
+
+.compra-registro .form-compra .form-compra__container .input__container input::-ms-input-placeholder {
+  color: #0008;
+  font-size: 18px;
+}
+
+.compra-registro .form-compra .form-compra__container .input__container input::placeholder {
+  color: #0008;
+  font-size: 18px;
+}
+
+.compra-registro .form-compra .form-compra__container .input__container .input-boton__compra {
+  background-color: #009393;
+  width: 50%;
+  border: 3px solid #00e0c6;
+  border-radius: 0;
+  color: #000;
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+}
+
+.compra-registro .form-compra .form-compra__container .input__container .input-boton__compra:hover {
+  background-color: #00e0c6;
+}
+
+.registro__invisible {
+  display: none;
+}
+
+.registro__visible {
+  display: block;
 }
 
 .info-secundaria {

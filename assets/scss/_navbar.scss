@@ -32,6 +32,7 @@ body{
             display: inline-block;
             margin: 0 15px;
             padding:  5px 10px; 
+            position: relative;
             a{
                 text-decoration: none;
                 padding: 5px 10px;
@@ -43,6 +44,18 @@ body{
                 &:hover {
                     color: $colorD;
                 }
+            }
+            .contador-productos {
+                position: absolute;
+                top: -2px;
+                right: -2px;
+                padding: 1.5px 6px;
+                border-radius: 50%;
+                background-color: $colorB;
+                font-size: 11px;
+                font-weight: 600;
+                color: $colorB;
+                background-color: $colorA;
             }
         }
     }
