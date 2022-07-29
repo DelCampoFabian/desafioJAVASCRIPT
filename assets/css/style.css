@@ -165,7 +165,10 @@ body {
   }
 }
 
-.nosotros-titulo, .productos-tituto, .registro-titulo, .contacto-titulo {
+.nosotros-titulo,
+.productos-tituto,
+.registro-titulo,
+.contacto-titulo {
   width: 100%;
   text-align: center;
   font-size: 38px;
@@ -174,7 +177,10 @@ body {
   color: #016170;
 }
 
-.nosotros-titulo span, .productos-tituto span, .registro-titulo span, .contacto-titulo span {
+.nosotros-titulo span,
+.productos-tituto span,
+.registro-titulo span,
+.contacto-titulo span {
   color: #00e0c6;
 }
 
@@ -285,6 +291,25 @@ body {
   border: 2px solid #016170;
 }
 
+.productos__verMas {
+  padding: 3px 30px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #016170;
+  border: 2px solid #016170;
+  border-radius: 4px;
+  margin: 5px;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+.productos__verMas:hover {
+  background-color: #fff;
+  color: #016170;
+  border: 2px solid #016170;
+}
+
 /* Formulario de contacto */
 .contacto {
   margin: 0px auto;
@@ -362,7 +387,8 @@ body {
   font-size: 16px;
 }
 
-.contacto .contact-form .contact-container input:valid ~ label, .contacto .contact-form .contact-container input:focus ~ label {
+.contacto .contact-form .contact-container input:valid ~ label,
+.contacto .contact-form .contact-container input:focus ~ label {
   color: #00e0c6;
   -webkit-transform: translateX(10px) translateY(-7px);
           transform: translateX(10px) translateY(-7px);
@@ -457,15 +483,27 @@ body {
       grid-template-rows: 1fr;
 }
 
-.registro__productos .container .container__producto, .registro__productos .container .container__id, .registro__productos .container .container__precio, .registro__productos .container .container__cantidad, .registro__productos .container .container__total {
+.registro__productos .container .container__producto,
+.registro__productos .container .container__id,
+.registro__productos .container .container__precio,
+.registro__productos .container .container__cantidad,
+.registro__productos .container .container__total {
   text-align: center;
 }
 
-.registro__productos .container .container__producto ul, .registro__productos .container .container__id ul, .registro__productos .container .container__precio ul, .registro__productos .container .container__cantidad ul, .registro__productos .container .container__total ul {
+.registro__productos .container .container__producto ul,
+.registro__productos .container .container__id ul,
+.registro__productos .container .container__precio ul,
+.registro__productos .container .container__cantidad ul,
+.registro__productos .container .container__total ul {
   list-style: none;
 }
 
-.registro__productos .container .container__producto ul li, .registro__productos .container .container__id ul li, .registro__productos .container .container__precio ul li, .registro__productos .container .container__cantidad ul li, .registro__productos .container .container__total ul li {
+.registro__productos .container .container__producto ul li,
+.registro__productos .container .container__id ul li,
+.registro__productos .container .container__precio ul li,
+.registro__productos .container .container__cantidad ul li,
+.registro__productos .container .container__total ul li {
   font-weight: 600;
   border: none;
   color: #000;
@@ -474,7 +512,11 @@ body {
   font-size: 17px;
 }
 
-.registro__productos .container .container__producto h4, .registro__productos .container .container__id h4, .registro__productos .container .container__precio h4, .registro__productos .container .container__cantidad h4, .registro__productos .container .container__total h4 {
+.registro__productos .container .container__producto h4,
+.registro__productos .container .container__id h4,
+.registro__productos .container .container__precio h4,
+.registro__productos .container .container__cantidad h4,
+.registro__productos .container .container__total h4 {
   margin: 10px;
   border-bottom: 4px solid #ffffff;
   font-size: 21px;
@@ -551,6 +593,7 @@ body {
   margin: 50px auto;
   padding: 30px 15px;
   background-color: #009393;
+  position: relative;
 }
 
 .compra-registro h3 {
@@ -620,6 +663,24 @@ body {
 
 .compra-registro .form-compra .form-compra__container .input__container .input-boton__compra:hover {
   background-color: #00e0c6;
+}
+
+.compra-registro .boton-form__cancelar {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.compra-registro .boton-form__cancelar i {
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 24px;
+}
+
+.compra-registro .boton-form__cancelar i:hover {
+  color: #00e0c6;
 }
 
 .registro__invisible {
