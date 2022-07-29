@@ -166,7 +166,9 @@ function refrescarRegistro() {
 let refrescar = document.querySelector(".boton-cancelar")
 refrescar.addEventListener("click", (e) => {
     refrescarRegistro()
-    cartelCompraCancelada()
+    if (total > 0) {
+        cartelCompraCancelada()
+    } 
     total = 0;
 })
 
