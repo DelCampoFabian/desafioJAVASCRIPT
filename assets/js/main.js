@@ -71,6 +71,12 @@ function tarjetaDom(producto) {
         </div>`;
     return tarjetaDom
 }
+//Pintar las tarjetas de los productos
+function pintarCards(){
+    listaDeProductos.forEach((producto) => {
+        tarjetaContenedora.innerHTML += tarjetaDom(producto)
+    })
+}
 
 function obtenerApi() {
     fetch("https://62e2df9db54fc209b881e38a.mockapi.io/productos")
@@ -126,13 +132,6 @@ function obtenerStorage() {
         contenedorStorageNombre = producto.nombre;
         contenedorStorageId = producto.id;
         contenedorStoragePrecio = producto.precio;
-    })
-}
-
-//Pintar las tarjetas de los productos
-function pintarCards(){
-    listaDeProductos.forEach((producto) => {
-        tarjetaContenedora.innerHTML += tarjetaDom(producto)
     })
 }
 
