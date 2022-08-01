@@ -1,3 +1,5 @@
+//Registro de variables
+
 let registroNombre
 let registroId
 let registroPrecio
@@ -5,11 +7,12 @@ let registrarTotal
 let sumarCarrito
 let registroIniciarCompra
 let sacarRegistro
+let refrescar
+let refrescarFormulario
 let mostrarFormulario
 let formulario
 let cantInicioCompra
 let totalPrecioPagar
-
 let contenedorStorageNombre
 let contenedorStorageId
 let contenedorStoragePrecio
@@ -25,9 +28,10 @@ function registrarHtml() {
     sacarRegistro = document.querySelector(".registro__productos");
     mostrarFormulario = document.querySelector(".compra-registro");
     formulario = document.getElementById("Formulario");
-    cantInicioCompra = document.querySelector(".inicio-compra__cantidad")
-    totalPrecioPagar = document.querySelector(".inicio-compra__total")
-
+    cantInicioCompra = document.querySelector(".inicio-compra__cantidad");
+    totalPrecioPagar = document.querySelector(".inicio-compra__total");
+    refrescar = document.querySelector(".boton-cancelar");
+    refrescarFormulario = document.querySelector(".boton-form__cancelar");
 }
 registrarHtml()
 
@@ -51,43 +55,41 @@ registroIniciarCompra.addEventListener("click", () => {
     }
 })
 
+//Agregar o quitar las clases del contenedor del formulario y la lista de productos seleccionados
 function agregarQuitarClases() {
-    sacarRegistro.classList.toggle("registro__invisible")
-    mostrarFormulario.classList.toggle("registro__visible")
+    sacarRegistro.classList.toggle("registro__invisible");
+    mostrarFormulario.classList.toggle("registro__visible");
 }
 
 function almacenarStorage() {
-    localStorage.setItem("carrito", JSON.stringify(carrito))
-    localStorage.setItem("contador", JSON.stringify(cantidadProductos))
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("contador", JSON.stringify(cantidadProductos));
 }
 
 function obtenerStorage() {
     let storage = localStorage.getItem("carrito");
     object = JSON.parse(storage);
-    carrito = object
+    carrito = object;
     carrito.forEach((producto) => {
         contenedorStorageNombre = producto.nombre;
         contenedorStorageId = producto.id;
         contenedorStoragePrecio = producto.precio;
         mantenerLista()
     })
-
-    let storageCantProductos = localStorage.getItem("contador")
+    let storageCantProductos = localStorage.getItem("contador");
     let numeroProductos = JSON.parse(storageCantProductos);
     cantidadProductos = numeroProductos;
     contenedorContador = cantidadProductos.length;
-    sumarCarrito.innerText = `${contenedorContador}`
+    sumarCarrito.innerText = `${contenedorContador}`;
     cantInicioCompra.innerHTML = `Cantidad de productos: <span>${contenedorContador}</span>`;
     totalPrecioPagar.innerHTML = `Total a pagar: <span>$ ${totalStorage()}</span>`;
 }
-
 function mantenerLista() {
     registroNombre.innerHTML += `<li>${contenedorStorageNombre}</li>`;
-    registroId.innerHTML += `<li>${contenedorStorageId}</li>`
-    registroPrecio.innerHTML += `<li>$ ${contenedorStoragePrecio}</li>`
-    registrarTotal.innerHTML = `<li>$ ${totalStorage()}</li>`
+    registroId.innerHTML += `<li>${contenedorStorageId}</li>`;
+    registroPrecio.innerHTML += `<li>$ ${contenedorStoragePrecio}</li>`;
+    registrarTotal.innerHTML = `<li>$ ${totalStorage()}</li>`;
 }
-
 function totalStorage() {
     total = 0
     for (let i = 0; i < object.length; i++) {
@@ -95,8 +97,7 @@ function totalStorage() {
     }
     return total
 }
-
-//Funcion para validar 
+//Funcion para validar compra
 function realizarCompra() {
     formulario.onsubmit = (event) => {
         validarFormulario(event);
@@ -104,18 +105,13 @@ function realizarCompra() {
         refrescarRegistro();
     }
 }
-
 //Función para validar el formulario
 function validarFormulario(event) {
-    event.preventDefault()
-    formulario.reset()
+    event.preventDefault();
+    formulario.reset();
     setTimeout(() => {
         window.location.href = "../index.html";
-    }, 2000)
-    setTimeout(function agregarQuitarClases() {
-        sacarRegistro.classList.toggle("registro__invisible")
-        mostrarFormulario.classList.toggle("registro__visible")
-    }, 2100);
+    }, 2000);
 }
 
 //Cartel compra finalizada
@@ -129,7 +125,7 @@ function cartelCompraRealizada() {
     })
 }
 
-//Función del cartel de la compra cancelada
+//Cartel compra cancelada
 function cartelCompraCancelada() {
     Toastify({
         text: "Compra cancelada",
@@ -152,7 +148,7 @@ function limpiarCarrito() {
     registrarTotal.innerHTML = "";
     sumarCarrito.innerText = "0";
     cantInicioCompra.innerHTML = `Cantidad de productos: <span>0</span>`;
-    totalPrecioPagar.innerHTML = `Total a pagar: <span>$0</span>`;
+    totalPrecioPagar.innerHTML = `Total a pagar: <span>$ 0</span>`;
 }
 
 //función para borrar los productos seleccionados
@@ -162,8 +158,8 @@ function refrescarRegistro() {
     cantidadProductos = [];
     almacenarStorage();
 }
+
 //Borrar la lista de productos seleccionados
-let refrescar = document.querySelector(".boton-cancelar")
 refrescar.addEventListener("click", (e) => {
     refrescarRegistro()
     if (total > 0) {
@@ -172,7 +168,7 @@ refrescar.addEventListener("click", (e) => {
     total = 0;
 })
 
-let refrescarFormulario = document.querySelector(".boton-form__cancelar")
+//Salir del formulario de compras
 refrescarFormulario.addEventListener("click", () => {
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {

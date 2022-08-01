@@ -1,10 +1,3 @@
-const NAVTOGGLE = document.querySelector(".nav-toggle")
-const NAVMENU = document.querySelector(".enlaces")
-
-NAVTOGGLE.addEventListener("click", () => {
-    NAVMENU.classList.toggle("nav-menu_visible")
-})
-
 //Clase para crear los productos 
 class Producto {
     constructor(nombre, imagen, precio, id) {
@@ -15,10 +8,11 @@ class Producto {
     }
 }
 
+//Registro de variables
 let cantidadProductos = []
 let carrito = []
+let listaDeProductos = []
 let total = 0
-
 let tarjetaContenedora
 let contador = 0
 let contenedorContador
@@ -28,9 +22,7 @@ let contenedorStorageNombre
 let contenedorStorageId
 let contenedorStoragePrecio
 
-
-let listaDeProductos = []
-
+//Creación de productos
 let indumentaria1 = new Producto("Short", "ropaMujer6.jpg", 1500, 1)
 let indumentaria2 = new Producto("Remera y corto", "ropaHombre2.jpg", 5300, 2)
 let indumentaria3 = new Producto("Camiseta Boca Juniors", "ropaHombre3.jpg", 6500, 3)
@@ -47,6 +39,7 @@ let suplemento1 = new Producto("Proteina Star Nutrition", "suplementos5.jpg", 25
 let suplemento2 = new Producto("Creatina Star Nutrition", "suplementos6.jpg", 1600, 14)
 let suplemento3 = new Producto("Proteina HardCore", "suplementos4.jpg", 1100, 15)
 
+//Push de productos
 listaDeProductos.push(indumentaria1, indumentaria2, indumentaria3, indumentaria4, indumentaria5, indumentaria6, )
 listaDeProductos.push(accesorios1, accesorios2, accesorios3, accesorios4, accesorios5, accesorios6, )
 listaDeProductos.push(suplemento1, suplemento2, suplemento3)
@@ -57,7 +50,6 @@ function registrarHtml() {
     sumarCarrito = document.querySelector(".contador-productos")
     tarjetaContenedora = document.querySelector("#productos")
     llamarApi = document.querySelector(".productos__verMas")
-
 }
 
 function registrarProductos() {
@@ -87,6 +79,7 @@ function obtenerApi() {
             listaDeProductos.push(...data)
         })
 }
+
 function pintarProductosApi(){
     llamarApi.addEventListener("click",()=>{
         let productosApi = listaDeProductos.filter((producto) => producto.id >= 16)
@@ -97,8 +90,7 @@ function pintarProductosApi(){
         llamarApi.classList.toggle("registro__invisible")
     })
 }
-
-/* Función cartel de compra */
+//Función cartel de compra
 function cartelProductoAgregado() {
     Toastify({
         text: "Producto agregado",
@@ -126,7 +118,6 @@ function obtenerStorage() {
     cantidadProductos = numeroProductos;
     contenedorContador = cantidadProductos.length;
     sumarCarrito.innerText = `${contenedorContador}`
-
     //Storage de la lista de productos
     let storage = localStorage.getItem("carrito");
     object = JSON.parse(storage);
@@ -138,15 +129,14 @@ function obtenerStorage() {
     })
 }
 
-//TARJETA PARA CONTENER Y PINTAR LAS CARDS DE PRODUCTOS 
+//Pintar las tarjetas de los productos
 function pintarCards(){
     listaDeProductos.forEach((producto) => {
         tarjetaContenedora.innerHTML += tarjetaDom(producto)
     })
 }
 
-
-//GENERACION DE CARRITO
+//Generación de carrito
 function generarCarrito(){
     let botones = document.querySelectorAll(".boton");
     let arrayBotones = Array.from(botones)
@@ -163,7 +153,6 @@ function generarCarrito(){
         })
     })
 }
-
 
 function main() {
     registrarHtml()
