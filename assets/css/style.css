@@ -212,21 +212,24 @@ body {
 .nosotros-container .nosotros-text {
   width: 50%;
   height: 100%;
-  padding: 30px;
+  padding: 20px 30px;
   background-color: #009393;
   border-radius: 0 5px 5px 0;
   overflow: hidden;
 }
 
 .nosotros-container .nosotros-text h5 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .nosotros-container .nosotros-text p {
-  font-size: 16px;
+  font-size: 17px;
   color: #ffffff;
-  text-align: justify;
+  font-weight: 400;
+  text-align: left;
+  line-height: 26px;
 }
 
 /* PRODUCTOS */
@@ -291,23 +294,28 @@ body {
   border: 2px solid #016170;
 }
 
-.productos__verMas {
-  padding: 3px 30px;
+.boton__filtros {
+  padding: 5px 15px;
   color: #ffffff;
-  font-size: 18px;
-  font-weight: 600;
-  background-color: #016170;
-  border: 2px solid #016170;
+  background-color: #009393;
+  border: 2px solid #009393;
   border-radius: 4px;
+  font-weight: 600;
   margin: 5px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
+  -webkit-transition-duration: 10s;
+          transition-duration: 10s;
 }
 
-.productos__verMas:hover {
-  background-color: #fff;
+.boton__filtros:hover {
+  background-color: #ffffff;
   color: #016170;
-  border: 2px solid #016170;
+  border: 2px solid #009393;
+}
+
+.boton__filtros:focus {
+  background-color: #ffffff;
+  color: #016170;
+  border: 2px solid #009393;
 }
 
 /* Formulario de contacto */

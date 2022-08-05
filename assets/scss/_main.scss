@@ -20,11 +20,9 @@
     width: 90%;
     height: 450px;
     margin: auto;
-
     .nosotros-img {
         width: 50%;
         height: 100%;
-
         img {
             height: 100%;
             width: 100%;
@@ -32,24 +30,26 @@
             border-radius: 5px 0 0 5px;
         }
     }
-
     .nosotros-text {
         width: 50%;
         height: 100%;
-        padding: 30px;
+        padding: 20px 30px;
         background-color: $colorC;
         border-radius: 0 5px 5px 0;
         overflow: hidden;
 
         h5 {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 600;
+            text-transform: uppercase;
         }
 
         p {
-            font-size: 16px;
+            font-size: 17px;
             color: $colorB;
-            text-align: justify;
+            font-weight: 400;
+            text-align: left;
+            line-height: 26px;
         }
     }
 }
@@ -117,20 +117,25 @@
     }
 }
 
-.productos__verMas {
-    padding: 3px 30px;
+
+.boton__filtros {
+    padding: 5px 15px;
     color: $colorB;
-    font-size: 18px;
-    font-weight: 600;
-    background-color: $colorA;
-    border: 2px solid $colorA;
+    background-color: $colorC;
+    border: 2px solid $colorC;
     border-radius: 4px;
+    font-weight: 600;
     margin: 5px;
-    transition-duration: 0.2s;
+    transition-duration: 10s;
     &:hover {
-        background-color: #fff;
+        background-color: $colorB;
         color: $colorA;
-        border: 2px solid $colorA;
+        border: 2px solid $colorC;
+    }
+    &:focus{
+        background-color: $colorB;
+        color: $colorA;
+        border: 2px solid $colorC;
     }
 }
 
