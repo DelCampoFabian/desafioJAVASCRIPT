@@ -116,8 +116,6 @@
 
     }
 }
-
-
 .boton__filtros {
     padding: 5px 15px;
     color: $colorB;
@@ -126,13 +124,7 @@
     border-radius: 4px;
     font-weight: 600;
     margin: 5px;
-    transition-duration: 10s;
     &:hover {
-        background-color: $colorB;
-        color: $colorA;
-        border: 2px solid $colorC;
-    }
-    &:focus{
         background-color: $colorB;
         color: $colorA;
         border: 2px solid $colorC;
@@ -266,13 +258,10 @@
     }
 }
 
-
-
 /* Registro de productos */
 .registro__productos {
     display: flex;
     justify-content: space-between;
-
     .container {
         width: 70%;
         margin: 30px 20px;
@@ -282,17 +271,14 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr;
-
         .container__producto,
         .container__id,
         .container__precio,
         .container__cantidad,
         .container__total {
             text-align: center;
-
             ul {
                 list-style: none;
-
                 li {
                     font-weight: 600;
                     border: none;
@@ -302,7 +288,6 @@
                     font-size: 17px;
                 }
             }
-
             h4 {
                 margin: 10px;
                 border-bottom: 4px solid $colorB;
@@ -310,14 +295,12 @@
                 color: $colorB;
             }
         }
-
         .boton-cancelar {
             border: none;
             background-color: transparent;
             position: absolute;
             right: 0px;
             top: 0px;
-
             i {
                 color: $colorB;
                 padding: 10px 20px;
@@ -386,25 +369,20 @@
     padding: 30px 15px;
     background-color: $colorC;
     position: relative;
-
     h3 {
         font-size: 28px;
         font-weight: 600;
         color: $colorB;
         text-align: center;
     }
-
     .form-compra {
         padding: 15px;
-
         .form-compra__container {
             margin: 10px auto;
             display: flex;
-
             .input__container {
                 width: 50%;
                 text-align: center;
-
                 input {
                     width: 90%;
                     padding: 8px;
@@ -415,13 +393,11 @@
                     color: $colorB;
                     font-size: 17px;
                     font-weight: 500;
-
                     &::placeholder {
                         color: #0008;
                         font-size: 18px;
                     }
                 }
-
                 .input-boton__compra {
                     background-color: $colorC;
                     width: 50%;
@@ -429,7 +405,6 @@
                     border-radius: 0;
                     color: #000;
                     transition-duration: .2s;
-
                     &:hover {
                         background-color: $colorD;
                     }
@@ -444,18 +419,15 @@
         position: absolute;
         right: 0px;
         top: 0px;
-
         i {
             color: $colorB;
             padding: 10px 20px;
             font-size: 24px;
-
             &:hover {
                 color: $colorD;
             }
         }
     }
-
 }
 
 .registro__invisible {

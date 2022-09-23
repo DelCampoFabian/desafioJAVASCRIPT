@@ -1,3 +1,10 @@
+const NAVTOGGLE = document.querySelector(".nav-toggle")
+const NAVMENU = document.querySelector(".enlaces")
+
+NAVTOGGLE.addEventListener("click", () => {
+    NAVMENU.classList.toggle("nav-menu_visible")
+})
+
 //Clase para crear los productos 
 class Producto {
     constructor(nombre, imagen, precio, categoria, id) {
@@ -55,7 +62,7 @@ listaDeProductos.push(suplemento1, suplemento2, suplemento3)
 
 //FUNCIONES
 
-console.log(listaDeProductos)
+
 function registrarHtml() {
     sumarCarrito = document.querySelector(".contador-productos")
     tarjetaContenedora = document.querySelector("#productos")
@@ -64,7 +71,7 @@ function registrarHtml() {
     botonFiltroSnacks = document.querySelector("#snacks")
     botonFiltroSuplementos = document.querySelector("#suplementos")
     botonTodosProductos = document.querySelector("#verTodo")
-    
+
 }
 
 
@@ -87,7 +94,17 @@ function tarjetaDom(producto) {
         </div>`;
     return tarjetaDom
 }
-
+function botonesFiltros(botones, categoria) {
+    botones.addEventListener("click", () => {
+        let productosFiltrados = listaDeProductos.filter((producto) => producto.categoria === categoria)
+        console.log(productosFiltrados);
+        tarjetaContenedora.innerHTML = ""
+        productosFiltrados.forEach((producto) => {
+            tarjetaContenedora.innerHTML += tarjetaDom(producto)
+        })
+        generarCarrito()
+    })
+}
 
 //Pintar las tarjetas de los productos
 function pintarCards() {
@@ -103,7 +120,7 @@ function obtenerApi() {
         .then((data) => {
             listaDeProductos.push(...data)
         })
-} 
+}
 
 //Función cartel de compra
 function cartelProductoAgregado() {
@@ -164,6 +181,10 @@ function generarCarrito() {
 
 function main() {
     registrarHtml()
+    botonesFiltros(botonFiltroSnacks, "snacks")
+    botonesFiltros(botonFiltroIndumentaria, "indumentaria")
+    botonesFiltros(botonFiltroAccesorios, "accesorios")
+    botonesFiltros(botonFiltroSuplementos, "suplementos")
     pintarCards()
     generarCarrito()
     obtenerApi()
@@ -171,27 +192,10 @@ function main() {
 }
 main()
 
+
 botonTodosProductos.addEventListener("click", () => {
     tarjetaContenedora.innerHTML = ""
     pintarCards()
     generarCarrito()
 })
-
-
-function botonesFiltros (botones,categoria){
-    botones.addEventListener("click", () => {
-        let productosFiltrados = listaDeProductos.filter((producto) => producto.categoria === categoria)
-        console.log(productosFiltrados);
-        tarjetaContenedora.innerHTML = ""
-        productosFiltrados.forEach((producto) => {
-            tarjetaContenedora.innerHTML += tarjetaDom(producto)
-        })
-        generarCarrito()
-    })
-}
- 
-botonesFiltros(botonFiltroSnacks, "snacks")
-botonesFiltros(botonFiltroIndumentaria,"indumentaria")
-botonesFiltros(botonFiltroAccesorios, "accesorios")
-botonesFiltros(botonFiltroSuplementos, "suplementos")
 

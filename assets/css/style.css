@@ -137,8 +137,8 @@ body {
     height: calc(100% - 60px);
     overflow-y: auto;
     left: 100%;
-    -webkit-transition-duration: left .3s;
-            transition-duration: left .3s;
+    -webkit-transition: left .5s;
+    transition: left .5s;
   }
   .navegacion .enlaces li {
     margin: 10px;
@@ -302,17 +302,9 @@ body {
   border-radius: 4px;
   font-weight: 600;
   margin: 5px;
-  -webkit-transition-duration: 10s;
-          transition-duration: 10s;
 }
 
 .boton__filtros:hover {
-  background-color: #ffffff;
-  color: #016170;
-  border: 2px solid #009393;
-}
-
-.boton__filtros:focus {
   background-color: #ffffff;
   color: #016170;
   border: 2px solid #009393;

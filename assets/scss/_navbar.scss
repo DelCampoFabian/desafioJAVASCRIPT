@@ -110,7 +110,7 @@ body{
             height:calc(100% - 60px);
             overflow-y: auto;
             left: 100%;
-            transition-duration: left .3s;
+            transition: left .5s;
             li{
                 margin: 10px;
                
