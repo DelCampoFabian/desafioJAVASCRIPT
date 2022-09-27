@@ -1,3 +1,10 @@
+const NAVTOGGLE = document.querySelector(".nav-toggle")
+const NAVMENU = document.querySelector(".enlaces")
+
+NAVTOGGLE.addEventListener("click", () => {
+    NAVMENU.classList.toggle("nav-menu_visible")
+})
+
 //Registro de variables
 
 let registroNombre

@@ -765,4 +765,292 @@ body {
 .pie__container .pie__redes li i {
   font-size: 28px;
 }
+
+@media (max-width: 992px) {
+  .encabezado {
+    display: none;
+  }
+  .nosotros-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+  }
+  .nosotros-container .nosotros-img {
+    width: 90%;
+    height: 100%;
+  }
+  .nosotros-container .nosotros-text {
+    width: 90%;
+  }
+  .contacto .contact-redes {
+    padding: 10px;
+    text-align: center;
+  }
+  .contacto .contact-redes .contact-redes-img {
+    width: 90%;
+    height: 100px;
+    margin: 50px auto;
+  }
+  .contacto .contact-redes .contact-redes-icons {
+    margin: 25px auto;
+  }
+  .contacto .contact-redes .contact-redes-icons h4 {
+    font-size: 20px;
+  }
+  .contacto .contact-redes .contact-redes-icons span {
+    font-size: 24px;
+    padding: 5px 15px;
+  }
+  .contacto .contact-form h4 {
+    font-size: 30px;
+  }
+  .info-secundaria {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .info-secundaria .info-secundaria__container {
+    padding: 15px;
+  }
+  .info-secundaria .info-secundaria__container span {
+    font-size: 48px;
+  }
+  .info-secundaria .info-secundaria__container h5 {
+    font-size: 22px;
+  }
+  .registro__productos {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .registro__productos .container {
+    width: 70%;
+    margin: 20px;
+    padding: 15px;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+  }
+  .registro__productos .container .container__producto,
+  .registro__productos .container .container__precio,
+  .registro__productos .container .container__cantidad,
+  .registro__productos .container .container__total {
+    text-align: center;
+  }
+  .registro__productos .container .container__producto ul,
+  .registro__productos .container .container__precio ul,
+  .registro__productos .container .container__cantidad ul,
+  .registro__productos .container .container__total ul {
+    list-style: none;
+  }
+  .registro__productos .container .container__producto ul li,
+  .registro__productos .container .container__precio ul li,
+  .registro__productos .container .container__cantidad ul li,
+  .registro__productos .container .container__total ul li {
+    border-bottom: 4px solid #ffffff;
+  }
+  .registro__productos .container .container__producto h4,
+  .registro__productos .container .container__precio h4,
+  .registro__productos .container .container__cantidad h4,
+  .registro__productos .container .container__total h4 {
+    margin: 10px;
+    border-bottom: 4px solid #ffffff;
+    font-size: 17px;
+    color: #ffffff;
+  }
+  .registro__productos .container .container__id {
+    display: none;
+  }
+  .registro__productos .inicio-compra {
+    margin: 30px 15px;
+  }
+  .registro__productos .inicio-compra h3 {
+    font-size: 20px;
+  }
+  .registro__productos .inicio-compra h5 {
+    font-size: 18px;
+  }
+  .registro__productos .inicio-compra .inicio-boton__comprar {
+    padding: 4px 14px;
+    margin: 15px auto;
+    font-size: 15px;
+  }
+  .registro__invisible {
+    display: none;
+  }
+  .registro__visible {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .contacto {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .contacto .contact-redes .contact-redes-img {
+    width: 90%;
+    height: 100px;
+    margin: 30px auto;
+  }
+  .contacto .contact-redes .contact-redes-icons {
+    margin: 25px auto;
+  }
+  .contacto .contact-redes .contact-redes-icons h4 {
+    font-size: 24px;
+  }
+  .contacto .contact-redes .contact-redes-icons span {
+    font-size: 21px;
+    padding: 5px 15px;
+  }
+  .info-secundaria {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .info-secundaria .info-secundaria__container {
+    width: 70%;
+  }
+  .info-secundaria .info-secundaria__container span {
+    font-size: 48px;
+  }
+  .info-secundaria .info-secundaria__container:nth-child(2) {
+    border-right: none;
+    border-left: none;
+  }
+  .pie__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 50px 20px 20px;
+  }
+  .pie__container .pie__ubicacion, .pie__container .pie__contacto, .pie__container .pie__redes {
+    text-align: center;
+  }
+  .pie__container .pie__ubicacion h6, .pie__container .pie__contacto h6, .pie__container .pie__redes h6 {
+    font-size: 22px;
+  }
+  .pie__container .pie__ubicacion ul li, .pie__container .pie__contacto ul li, .pie__container .pie__redes ul li {
+    line-height: 24px;
+  }
+  .registro__productos {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .registro__productos .container {
+    width: 90%;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+  }
+  .registro__productos .container .container__producto,
+  .registro__productos .container .container__precio,
+  .registro__productos .container .container__cantidad,
+  .registro__productos .container .container__total {
+    text-align: center;
+  }
+  .registro__productos .container .container__producto ul,
+  .registro__productos .container .container__precio ul,
+  .registro__productos .container .container__cantidad ul,
+  .registro__productos .container .container__total ul {
+    list-style: none;
+  }
+  .registro__productos .container .container__producto ul li,
+  .registro__productos .container .container__precio ul li,
+  .registro__productos .container .container__cantidad ul li,
+  .registro__productos .container .container__total ul li {
+    border-bottom: 4px solid #ffffff;
+  }
+  .registro__productos .container .container__producto h4,
+  .registro__productos .container .container__precio h4,
+  .registro__productos .container .container__cantidad h4,
+  .registro__productos .container .container__total h4 {
+    margin: 10px;
+    border-bottom: 4px solid #ffffff;
+    font-size: 17px;
+    color: #ffffff;
+  }
+  .registro__productos .container .container__id {
+    display: none;
+  }
+  .registro__productos .inicio-compra {
+    width: 90%;
+  }
+  .registro__productos .inicio-compra h3 {
+    font-size: 28px;
+  }
+  .registro__productos .inicio-compra h5 {
+    font-size: 22px;
+  }
+  .registro__productos .inicio-compra .inicio-boton__comprar {
+    font-size: 17px;
+  }
+  .registro__productos .inicio-compra {
+    margin: 30px 15px;
+  }
+  .registro__productos .inicio-compra h3 {
+    font-size: 20px;
+  }
+  .registro__productos .inicio-compra h5 {
+    font-size: 18px;
+  }
+  .registro__productos .inicio-compra .inicio-boton__comprar {
+    font-size: 15px;
+  }
+  .compra-registro {
+    display: none;
+  }
+  .compra-registro h3 {
+    font-size: 24px;
+  }
+  .compra-registro .form-compra {
+    width: 100%;
+  }
+  .compra-registro .form-compra .form-compra__container {
+    display: inline-block;
+    width: 100%;
+  }
+  .compra-registro .form-compra .form-compra__container .input__container {
+    width: 100%;
+  }
+  .compra-registro .form-compra .form-compra__container .input__container input {
+    width: 90%;
+    padding: 4px;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .compra-registro .form-compra .form-compra__container .input__container input::-webkit-input-placeholder {
+    font-size: 14px;
+  }
+  .compra-registro .form-compra .form-compra__container .input__container input:-ms-input-placeholder {
+    font-size: 14px;
+  }
+  .compra-registro .form-compra .form-compra__container .input__container input::-ms-input-placeholder {
+    font-size: 14px;
+  }
+  .compra-registro .form-compra .form-compra__container .input__container input::placeholder {
+    font-size: 14px;
+  }
+  .registro__invisible {
+    display: none;
+  }
+  .registro__visible {
+    display: block;
+  }
+}
 /*# sourceMappingURL=style.css.map */

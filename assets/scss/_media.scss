@@ -1,0 +1,252 @@
+@media (max-width:992px) {
+    .encabezado {
+        display: none;
+    }
+    .nosotros-container {
+        flex-direction: column;
+        
+        height: max-content;
+        .nosotros-img {
+            width: 90%;
+            height: 100%;
+        }
+        .nosotros-text {
+            width: 90%;
+        }
+    }
+    .contacto {
+        .contact-redes {
+            padding: 10px;
+            text-align: center;
+    
+            .contact-redes-img {
+                width: 90%;
+                height: 100px;
+                margin: 50px auto;
+            }
+            .contact-redes-icons {
+                margin: 25px auto;
+                h4 {
+                    font-size: 20px;
+                }
+                span {
+                    font-size: 24px;
+                    padding: 5px 15px;
+                }
+            }
+        }
+        .contact-form {
+            h4 {
+                font-size: 30px;
+            }
+        }
+    }
+    .info-secundaria {
+        justify-content: center;
+        .info-secundaria__container {
+            padding: 15px ;
+            span {
+                font-size: 48px;
+            }
+            h5 {
+                font-size: 22px;
+            }
+        }
+    }
+
+    .registro__productos {
+        display: flex;
+        justify-content: space-around;
+        .container {
+            width: 70%;
+            margin: 20px;
+            padding: 15px;
+            grid-template-columns: 1fr 1fr 1fr;
+            .container__producto,
+            .container__precio,
+            .container__cantidad,
+            .container__total {
+                text-align: center;
+                ul {
+                    list-style: none;
+                    li {
+                        border-bottom: 4px solid $colorB;
+                    }
+                }
+                h4 {
+                    margin: 10px;
+                    border-bottom: 4px solid $colorB;
+                    font-size: 17px;
+                    color: $colorB;
+                }
+            }
+            .container__id{
+                display: none;
+            }
+        }
+    
+        .inicio-compra {
+            margin: 30px 15px;
+            h3 {
+                font-size: 20px;
+            }
+
+            h5 { 
+                font-size: 18px;  
+            }
+            .inicio-boton__comprar {
+                padding: 4px 14px;
+                margin: 15px auto;
+                font-size: 15px;
+            }
+        }
+    }
+    .registro__invisible {
+        display: none;
+    }
+    .registro__visible {
+        display: block;
+    }
+}
+
+
+@media (max-width: 768px){
+    .contacto {
+        flex-direction: column;
+        .contact-redes {
+            .contact-redes-img {
+                width: 90%;
+                height: 100px;
+                margin: 30px auto;
+            }
+            .contact-redes-icons {
+                margin: 25px auto;
+                h4 {
+                    font-size: 24px;
+                }
+                span {
+                    font-size: 21px;
+                    padding: 5px 15px;
+                }
+            }
+        }
+    
+    }
+    .info-secundaria {
+        flex-direction: column;
+        .info-secundaria__container {
+            width: 70%;
+            span {
+                font-size: 48px;
+            }
+        }
+        .info-secundaria__container:nth-child(2){
+            border-right:none;
+            border-left: none;
+        } 
+    }
+    .pie__container {
+        flex-direction: column;
+        padding: 50px 20px 20px;
+        .pie__ubicacion, .pie__contacto, .pie__redes {
+            text-align: center;
+            h6 {
+                font-size: 22px;
+            }
+            ul{
+                li {
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+    .registro__productos {
+        flex-direction: column;
+        align-items: center;
+        .container {
+            width: 90%;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            .container__producto,
+            .container__precio,
+            .container__cantidad,
+            .container__total {
+                text-align: center;
+                ul {
+                    list-style: none;
+                    li {
+                        border-bottom: 4px solid $colorB;
+                    }
+                }
+                h4 {
+                    margin: 10px;
+                    border-bottom: 4px solid $colorB;
+                    font-size: 17px;
+                    color: $colorB;
+                }
+            }
+            .container__id{
+                display: none;
+            }
+        }
+        .inicio-compra {
+            width: 90%;
+            h3 {
+                font-size: 28px;
+            }
+            h5 {
+                font-size: 22px;
+            }
+    
+            .inicio-boton__comprar {
+                font-size: 17px;
+            }
+        }
+        .inicio-compra {
+            margin: 30px 15px;
+            h3 {
+                font-size: 20px;
+            }
+            h5 { 
+                font-size: 18px;  
+            }
+            .inicio-boton__comprar {
+                font-size: 15px;
+            }
+        }
+    }
+    .compra-registro {
+        display: none;
+        h3 {
+            font-size: 24px;
+        }
+        .form-compra {
+         width: 100%;
+            .form-compra__container {
+                display: inline-block;
+                width: 100%;
+                .input__container {
+                    width: 100%;
+                    input {
+                        width: 90%;
+                        padding: 4px;
+                        margin-top: 10px;
+                        font-size: 14px;
+                        &::placeholder {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .registro__invisible {
+        display: none;
+    }
+    
+    .registro__visible {
+        display: block;
+    }
+}
+
+
