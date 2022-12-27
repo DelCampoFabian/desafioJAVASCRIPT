@@ -138,7 +138,6 @@
     justify-content: center;
     align-items: center;
     background-color: $colorA;
-
     .contact-redes {
         padding: 15px;
         text-align: center;
@@ -174,7 +173,6 @@
         width: 500px;
         padding: 50px;
         text-align: center;
-
         h4 {
             text-align: center;
             font-size: 34px;
@@ -184,7 +182,7 @@
 
         .contact-container {
             position: relative;
-            width: 400px;
+            width: 100%;
             margin: 25px auto;
 
             input {

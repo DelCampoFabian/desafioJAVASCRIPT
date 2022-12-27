@@ -372,7 +372,7 @@ body {
 
 .contacto .contact-form .contact-container {
   position: relative;
-  width: 400px;
+  width: 100%;
   margin: 25px auto;
 }
 
@@ -805,8 +805,17 @@ body {
     font-size: 24px;
     padding: 5px 15px;
   }
+  .contacto .contact-form {
+    width: 90%;
+    padding: 50px 0%;
+  }
   .contacto .contact-form h4 {
     font-size: 30px;
+  }
+  .contacto .contact-form .contact-container {
+    position: relative;
+    width: 100%;
+    margin: 25px auto;
   }
   .info-secundaria {
     -webkit-box-pack: center;

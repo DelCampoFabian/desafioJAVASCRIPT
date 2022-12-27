@@ -60,9 +60,6 @@ listaDeProductos.push(accesorios1, accesorios2, accesorios3, accesorios4, acceso
 listaDeProductos.push(suplemento1, suplemento2, suplemento3)
 
 
-//FUNCIONES
-
-
 function registrarHtml() {
     sumarCarrito = document.querySelector(".contador-productos")
     tarjetaContenedora = document.querySelector("#productos")
@@ -73,7 +70,6 @@ function registrarHtml() {
     botonTodosProductos = document.querySelector("#verTodo")
 
 }
-
 
 function registrarProductos() {
     sumarCarrito.innerText = `${cantidadProductos.length}`
@@ -112,7 +108,6 @@ function pintarCards() {
         tarjetaContenedora.innerHTML += tarjetaDom(producto)
     })
 }
-
 
 function obtenerApi() {
     fetch("https://62e2df9db54fc209b881e38a.mockapi.io/productos")
